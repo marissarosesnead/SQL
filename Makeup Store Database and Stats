@@ -1,0 +1,18 @@
+CREATE TABLE marissa_makeup (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, aisle TEXT, quantity INTEGER);
+INSERT INTO marissa_makeup VALUES(1,"mascara", 3.99, 4, 15);
+INSERT INTO marissa_makeup VALUES(2,"blush",5.99, 2, 10);
+INSERT INTO marissa_makeup VALUES(3, "contour palette", 8.99, 2, 12);
+INSERT INTO marissa_makeup VALUES(4, "lipstick", 2.99, 7,25);
+INSERT INTO marissa_makeup VALUES(5, "eyeshadow palette", 15.99, 8,32);
+INSERT INTO marissa_makeup VALUES(6, "highlighter", 4.99, 9,10);
+INSERT INTO marissa_makeup VALUES(7, "face mask", 12.99, 3,25);
+INSERT INTO marissa_makeup VALUES(8, "makeup remover", 6.99, 10, 1);
+INSERT INTO marissa_makeup VALUES(9,"lip gloss", 1.99, 6,15);
+INSERT INTO marissa_makeup VALUES(10, "eye liner", 0.99, 4, 6);
+INSERT INTO marissa_makeup VALUES(11, "bronzer", 6.99, 2, 17);
+INSERT INTO marissa_makeup VALUES(12, "glitter", 2.99, 4, 22);
+INSERT INTO marissa_makeup VALUES(13, "moisturizer", 9.99, 10, 3);
+INSERT INTO marissa_makeup VALUES(14, "makeup brushes", 20.99, 1, 13);
+INSERT INTO marissa_makeup VALUES(15, "foundation", 19.99, 5, 27);
+
+SELECT * FROM marissa_makeup ORDER BY price;
