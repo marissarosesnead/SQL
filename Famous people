@@ -1,0 +1,74 @@
+CREATE TABLE persons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+    
+INSERT INTO persons (fullname, age) VALUES ("Ariana Grande", "29");
+INSERT INTO persons (fullname, age) VALUES ("Zendaya", "26");
+INSERT INTO persons (fullname, age) VALUES ("F.Scott Fitzgerald", "44");
+INSERT INTO persons (fullname, age) VALUES ("SpongeBob SquarePants", "18");
+
+CREATE table hobbies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT);
+    
+INSERT INTO hobbies (person_id, name) VALUES (1, "singing");
+INSERT INTO hobbies (person_id, name) VALUES (1, "dancing");
+INSERT INTO hobbies (person_id, name) VALUES (2, "dancing");
+INSERT INTO hobbies (person_id, name) VALUES (2, "acting");
+INSERT INTO hobbies (person_id, name) VALUES (3, "writing");
+INSERT INTO hobbies (person_id, name) VALUES (4, "working");
+INSERT INTO hobbies (person_id, name) VALUES (4, "dilly-dallying");
+INSERT INTO hobbies (person_id, name) VALUES (4, "jelly-fishing");
+
+
+CREATE table work (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT);
+    
+INSERT INTO work (person_id, name) VALUES (1, "Thank U, Next");
+INSERT INTO work (person_id, name) VALUES (1, "Bang Bang");
+INSERT INTO work (person_id, name) VALUES (2, "Shake it Up");
+INSERT INTO work (person_id, name) VALUES (2, "Spider-Man: Far From Home");
+INSERT INTO work (person_id, name) VALUES (3, "The Great Gatsby");
+INSERT INTO work (person_id, name) VALUES (3, "The Great Gatsby");
+INSERT INTO work (person_id, name) VALUES (4, "Tender Is the Night");
+INSERT INTO work (person_id, name) VALUES (4, "Krabby Patties");
+
+CREATE table friends (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person1_id INTEGER,
+    person2_id INTEGER);
+    
+INSERT INTO friends (person1_id, person2_id)
+    VALUES (1, 4);
+INSERT INTO friends (person1_id, person2_id)
+    VALUES (2, 3);
+
+SELECT persons.fullname as "name", hobbies.name as "hobbies"
+    From hobbies
+    JOIN persons
+    ON hobbies.person_id = persons.id;
+    
+SELECT persons.fullname as "name", hobbies.name as "hobbies"
+    FROM hobbies
+    JOIN persons
+    ON hobbies.person_id = persons.id
+    WHERE persons.fullname = "Zendaya"; 
+    
+SELECT persons.fullname as "name", persons.age, work.name as creations
+    FROM persons
+    LEFT OUTER JOIN work
+    ON persons.id = work.person_id;
+    
+SELECT a.fullname as "name", b.fullname as "friend"
+    FROM friends
+    JOIN persons a
+    ON a.id = friends.person1_id
+    JOIN persons b
+    ON b.id = friends.person2_id;
+    
+
+
